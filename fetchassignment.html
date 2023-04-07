@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="">
+</head>
+<body>  
+  <div class="wrapper"></div>
+
+    <script>
+       fetch('https://dummyjson.com/products') 
+       .then((response)=>{
+        return response.json();
+        console.log(response)
+       })
+       .then((result)=>{
+        console.log(result);
+        show(result.products);
+       });
+
+
+       function show(data)
+       {
+         for(let i=0; i<data.length; i++){
+            const image = document.createElement('img');
+       image.src = data[i].images[0];
+   
+      document.querySelector(".wrapper").append(image);
+         }
+        
+
+       }
+    </script>
+</body>
+</html>
